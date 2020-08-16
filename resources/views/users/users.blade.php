@@ -1,7 +1,5 @@
 @if (count($users) > 0)
     <ul class="list-unstyled">
-        {{-- ページネーションのリンク --}}
-        {{ $user->links() }}
         @foreach ($users as $user)
             <li class="media">
                 {{-- ユーザのメールアドレスをもとにGravatarを取得して表示 --}}
@@ -18,4 +16,7 @@
             </li>
         @endforeach
     </ul>
+    </ul>
+    {{-- ページネーションのリンク --}}
+    {{ $users->links() }}
 @endif
