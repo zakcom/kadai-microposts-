@@ -22,22 +22,8 @@
                             {!! Form::close() !!}
                         @endif
                     </div>
-                    <div>
-                         @if (Auth::id() != $micropost->id)
-                            @if (Auth::user()->is_favoriting($micropost->id))
-                            {{-- お気に入り解除ボタンのフォーム --}}
-                            {!! Form::open(['route' => ['favorites.unfavorite', $micropost->id], 'method' => 'delete']) !!}
-                                {!! Form::submit('Unfavorite', ['class' => 'btn btn-secondary btn-sm']) !!}
-                            {!! Form::close() !!}
-                            @else
-                           {{-- お気に入り登録ボタンのフォーム --}}
-                            {!! Form::open(['route' => ['favorites.favorite', $micropost->id], 'method' => 'store']) !!}
-                                {!! Form::submit('Favorite', ['class' => 'btn btn-primary btn-sm']) !!}
-                            {!! Form::close() !!}
-                            @endif
-                        @endif
-                    </div>
-                    
+                        {{-- お気に入り／お気に入り外しボタン --}}
+                        @include('favorites_favorite.favorites_button')
                 </div>
             </li>
         @endforeach
