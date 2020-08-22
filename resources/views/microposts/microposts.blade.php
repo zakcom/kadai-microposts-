@@ -22,8 +22,7 @@
                             {!! Form::close() !!}
                         @endif
                     </div>
-                    <div>
-                         @if (Auth::id() != $micropost->id)
+                    <div> @if(Auth::check())
                             @if (Auth::user()->is_favoriting($micropost->id))
                             {{-- お気に入り解除ボタンのフォーム --}}
                             {!! Form::open(['route' => ['favorites.unfavorite', $micropost->id], 'method' => 'delete']) !!}

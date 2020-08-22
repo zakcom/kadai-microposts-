@@ -94,10 +94,10 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      * */
     
-    public function favorites($micropostId)
+    public function favorites($micropost_id)
     {
         // idの値でユーザを検索して取得
-        $user = User::findOrFail($micropostId);
+        $user = User::findOrFail($micropost_id);
 
         // 関係するモデルの件数をロード
         $user->loadRelationshipCounts();
